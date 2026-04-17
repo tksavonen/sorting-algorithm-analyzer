@@ -49,11 +49,7 @@ void display_stats(std::chrono::high_resolution_clock::time_point end,
               << std::chrono::duration<double, std::micro>(end - start).count()
               << " µs.\n";
     std::cout << color::blue << SUB << color::reset << "\n";
-
-    std::cout << color::cyan << "Memory Usage\n" << color::reset;
-    std::cout << "Current:" << std::setw(17)    << TrackingAllocator<int>::current() / 1024.0 << " KB\n";
-    std::cout << "Peak:"    << std::setw(20)    << TrackingAllocator<int>::peak() / 1024.0 << " KB\n";
-    
+    std::cout << "Peak memory usage:"    << std::setw(20)    << TrackingAllocator<int>::peak() / 1024.0 << " KB\n";
     std::cout << color::blue << SEP << color::reset << "\n\n";
 }
 
@@ -296,12 +292,7 @@ void performance_test(int pop_number) {
     std::cout << color::blue << SUB << color::reset << "\n";
 
     std::cout << color::cyan << "Memory Usage\n" << color::reset;
-
-    std::cout << std::setw(20) << "Current:"
-            << TrackingAllocator<int>::current() / 1024.0 << " KB\n";
-
-    std::cout << std::setw(20) << "Peak:"
-            << TrackingAllocator<int>::peak() / 1024.0 << " KB\n";
+    std::cout << "Peak memory usage:"    << std::setw(20)    << TrackingAllocator<int>::peak() / 1024.0 << " KB\n";
 
     std::cout << color::blue << SEP << color::reset << "\n\n";
     std::cout << "Saved to results.csv.\n\n";
