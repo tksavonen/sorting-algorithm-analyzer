@@ -240,6 +240,7 @@ void performance_test(int pop_number) {
 
     double fastest = std::min({insertion_time, bubble_time, merge_time});
     double slowest = std::max({insertion_time, bubble_time, merge_time});
+    double ratio = slowest / fastest;
 
     auto getColor = [&](double t) {
         if (t == fastest) return color::green;
@@ -290,6 +291,7 @@ void performance_test(int pop_number) {
     std::cout << color::green << "Fastest: " << fastest_name << "\n";
     std::cout << color::red   << "Slowest: " << slowest_name << "\n";
     std::cout << color::reset;
+    std::cout << slowest_name << " was " << ratio << "x slower than " << fastest_name << ".\n";
 
     std::cout << color::blue << SUB << color::reset << "\n";
 
